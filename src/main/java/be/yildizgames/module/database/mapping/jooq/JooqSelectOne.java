@@ -17,13 +17,11 @@ package be.yildizgames.module.database.mapping.jooq;
 
 import org.jooq.DSLContext;
 
+import java.util.Optional;
+
 /**
- * This interface allow to create any query from the context that does not need to take parameter and do not return
- * any result.
- * Typical use case is for delete, merge, update.
  * @author Grégory Van den Borre
  */
-public interface JooqExecutor {
-
-    void execute(DSLContext context);
+public interface JooqSelectOne<T> {
+    Optional<T> execute(DSLContext context);
 }

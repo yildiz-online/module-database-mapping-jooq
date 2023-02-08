@@ -17,6 +17,7 @@ open module be.yildizgames.module.database.mapping.jooq {
 
     requires java.sql;
     requires org.jooq;
+    requires be.yildizgames.module.database;
 
     exports be.yildizgames.module.database.mapping.jooq;
 }
