@@ -13,11 +13,17 @@
  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-open module be.yildizgames.module.database.mapping.jooq {
+package be.yildizgames.module.database.mapping.jooq;
 
-    requires java.sql;
-    requires org.jooq;
+import org.jooq.DSLContext;
 
-    exports be.yildizgames.module.database.mapping.jooq;
+/**
+ * This interface allow to create any query from the context that does not need to take parameter and do not return
+ * any result.
+ * Typical use case is for delete, merge, update.
+ * @author Grégory Van den Borre
+ */
+public interface JooqExecutor {
+
+    void execute(DSLContext context);
 }
-
