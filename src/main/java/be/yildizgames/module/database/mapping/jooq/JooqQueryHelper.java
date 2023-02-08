@@ -102,7 +102,7 @@ public class JooqQueryHelper {
         }
     }
 
-    protected final <T> int executeAndGetId(T o, JooqExecutorGetId<T> execution) {
+    public final <T> int executeAndGetId(T o, JooqExecutorGetId<T> execution) {
         try (var c = this.connectionProvider.getConnection()) {
             var context = DSL.using(c, this.dialect);
             return execution.execute(context, o);
