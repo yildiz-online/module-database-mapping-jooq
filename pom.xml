@@ -58,6 +58,11 @@
       <version>3.17.7</version>
     </dependency>
     <dependency>
+      <groupId>be.yildiz-games</groupId>
+      <artifactId>module-database</artifactId>
+      <version>3.2.5</version>
+    </dependency>
+    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <scope>test</scope>
