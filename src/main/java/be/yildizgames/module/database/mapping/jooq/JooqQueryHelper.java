@@ -20,7 +20,6 @@ import org.jooq.SQLDialect;
 import org.jooq.Table;
 import org.jooq.impl.DSL;
 
-import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -55,7 +54,7 @@ public class JooqQueryHelper {
         try (var c = this.connectionProvider.getConnection()) {
             var context = DSL.using(c, this.dialect);
             return findOne.execute(context);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new IllegalStateException(e);
         }
     }
@@ -73,7 +72,7 @@ public class JooqQueryHelper {
         try (var c = this.connectionProvider.getConnection()) {
             var context = DSL.using(c, this.dialect);
             return findMany.execute(context);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             this.logger.log(System.Logger.Level.ERROR, "", e);
             throw new IllegalStateException(e);
         }
@@ -83,22 +82,31 @@ public class JooqQueryHelper {
         try (var c = this.connectionProvider.getConnection()) {
             var context = DSL.using(c, this.dialect);
             ex.execute(context);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             this.logger.log(System.Logger.Level.ERROR, "", e);
             throw new IllegalStateException(e);
         }
     }
 
     public final <T> void execute(Collection<T> objects, JooqExecutorWithParameter<T> execution) {
+        boolean error = false;
         try (var c = this.connectionProvider.getConnection()) {
             var context = DSL.using(c, this.dialect);
             for(var o : objects) {
                 //FIXME check size and batch if necessary
-                execution.execute(context, o);
+                try {
+                    execution.execute(context, o);
+                } catch (Exception e) {
+                    this.logger.log(System.Logger.Level.ERROR, "", e);
+                    error = true;
+                }
             }
-        } catch (SQLException | IllegalStateException e) {
+        } catch (Exception e) {
             this.logger.log(System.Logger.Level.ERROR, "", e);
             throw new IllegalStateException(e);
+        }
+        if(error) {
+            throw new IllegalStateException();
         }
     }
 
@@ -106,7 +114,7 @@ public class JooqQueryHelper {
         try (var c = this.connectionProvider.getConnection()) {
             var context = DSL.using(c, this.dialect);
             return execution.execute(context, o);
-        } catch (SQLException | IllegalStateException e) {
+        } catch (Exception e) {
             this.logger.log(System.Logger.Level.ERROR, "", e);
             throw new IllegalStateException(e);
         }
@@ -116,7 +124,7 @@ public class JooqQueryHelper {
         try (var c = this.connectionProvider.getConnection()) {
             var context = DSL.using(c, this.dialect);
             return context.fetchCount(table);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             this.logger.log(System.Logger.Level.ERROR, "", e);
             throw new IllegalStateException(e);
         }
