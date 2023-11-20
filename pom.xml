@@ -60,7 +60,7 @@
     <dependency>
       <groupId>be.yildiz-games</groupId>
       <artifactId>module-database</artifactId>
-      <version>3.2.6</version>
+      <version>3.2.7</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
