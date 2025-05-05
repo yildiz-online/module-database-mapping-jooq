@@ -55,7 +55,7 @@
     <dependency>
       <groupId>org.jooq</groupId>
       <artifactId>jooq-meta</artifactId>
-      <version>3.20.3</version>
+      <version>3.20.4</version>
       <exclusions>
         <exclusion>
           <groupId>jakarta.xml.bind</groupId>
