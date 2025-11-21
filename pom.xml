@@ -71,7 +71,7 @@
     <dependency>
       <groupId>be.yildiz-games</groupId>
       <artifactId>module-database</artifactId>
-      <version>3.3.1-SNAPSHOT</version>
+      <version>3.3.1</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
