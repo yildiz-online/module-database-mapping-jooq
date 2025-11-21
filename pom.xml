@@ -35,7 +35,7 @@
   <url>https://engine.yildiz-games.be</url>
 
   <artifactId>module-database-mapping-jooq</artifactId>
-  <version>1.0.38</version>
+  <version>1.0.39</version>
 
   <parent>
     <groupId>be.yildiz-games</groupId>
@@ -71,7 +71,7 @@
     <dependency>
       <groupId>be.yildiz-games</groupId>
       <artifactId>module-database</artifactId>
-      <version>3.3.0</version>
+      <version>3.3.1</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
