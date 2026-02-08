@@ -35,7 +35,7 @@
   <url>https://engine.yildiz-games.be</url>
 
   <artifactId>module-database-mapping-jooq</artifactId>
-  <version>1.0.41</version>
+  <version>1.0.42</version>
 
   <parent>
     <groupId>be.yildiz-games</groupId>
@@ -66,7 +66,7 @@
     <dependency>
       <groupId>jakarta.xml.bind</groupId>
       <artifactId>jakarta.xml.bind-api</artifactId>
-      <version>4.0.4</version>
+      <version>4.0.5</version>
     </dependency>
     <dependency>
       <groupId>be.yildiz-games</groupId>
