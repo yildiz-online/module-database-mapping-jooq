@@ -35,12 +35,12 @@
   <url>https://engine.yildiz-games.be</url>
 
   <artifactId>module-database-mapping-jooq</artifactId>
-  <version>1.0.51</version>
+  <version>1.0.52</version>
 
   <parent>
     <groupId>be.yildiz-games</groupId>
     <artifactId>parent</artifactId>
-    <version>7.0.1</version>
+    <version>7.0.2</version>
   </parent>
 
   <packaging>jar</packaging>
@@ -55,7 +55,7 @@
     <dependency>
       <groupId>org.jooq</groupId>
       <artifactId>jooq-meta</artifactId>
-      <version>3.21.8</version>
+      <version>3.21.9</version>
       <exclusions>
         <exclusion>
           <groupId>jakarta.xml.bind</groupId>
